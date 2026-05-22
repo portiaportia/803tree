@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/803trees/static/css/main.82c2f781.css",
-    "main.js": "/803trees/static/js/main.6e27974c.js",
+    "main.css": "/803trees/static/css/main.d565155d.css",
+    "main.js": "/803trees/static/js/main.0b6777dc.js",
     "static/media/hero.png": "/803trees/static/media/hero.8a875202aff8cff9497d.png",
     "static/media/lightening.png": "/803trees/static/media/lightening.b83391baa8ed170b6837.png",
     "static/media/tree.png": "/803trees/static/media/tree.4e0e5d2ab696b92c3acd.png",
     "static/media/chainsaw.png": "/803trees/static/media/chainsaw.f690c38808c82152b38d.png",
     "static/media/stump.png": "/803trees/static/media/stump.86d096e8da6d0e25f8b0.png",
     "index.html": "/803trees/index.html",
-    "main.82c2f781.css.map": "/803trees/static/css/main.82c2f781.css.map",
-    "main.6e27974c.js.map": "/803trees/static/js/main.6e27974c.js.map"
+    "main.d565155d.css.map": "/803trees/static/css/main.d565155d.css.map",
+    "main.0b6777dc.js.map": "/803trees/static/js/main.0b6777dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.82c2f781.css",
-    "static/js/main.6e27974c.js"
+    "static/css/main.d565155d.css",
+    "static/js/main.0b6777dc.js"
   ]
 }
