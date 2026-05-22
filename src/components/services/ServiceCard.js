@@ -3,8 +3,8 @@ import "./css/ServiceCard.css";
 const ServiceCard = ({ icon, title, description }) => {
   return (
     <article className="service-card">
-      <div className="service-card-icon">
-        <img className="service-card-icon" src={icon} />
+      <div>
+        <img className="service-card-icon" src={icon} img={title}/>
       </div>
 
       <h3 className="service-card-title">{title}</h3>

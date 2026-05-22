@@ -1,5 +1,3 @@
-// src/components/ServicesSection/LicensedInsured.js
-
 import "./css/LincensedInsured.css";
 
 const LicensedInsured = () => {

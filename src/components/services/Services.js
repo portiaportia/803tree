@@ -1,5 +1,3 @@
-// src/components/ServicesSection/ServicesSection.js
-
 import "./css/Services.css";
 import Tree from "./images/tree.png";
 import Chainsaw from "./images/chainsaw.png";

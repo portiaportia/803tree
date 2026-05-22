@@ -1,0 +1,144 @@
+/* src/components/Footer/Footer.css */
+
+.footer {
+  background: var(--color-bg);
+  color: var(--color-white);
+  padding: 64px 24px 28px;
+}
+
+.footer-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: baseline;
+  text-decoration: none;
+  font-weight: var(--fw-black);
+  margin-bottom: 16px;
+}
+
+.footer-logo-main {
+  font-size: var(--fs-xl);
+  color: var(--color-white);
+}
+
+.footer-logo-accent {
+  font-size: var(--fs-xl);
+  color: var(--color-accent);
+}
+
+.footer-logo-dot {
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+}
+
+.footer-text {
+  max-width: 280px;
+  color: var(--color-text-light);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1f5f35;
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 6px;
+}
+
+.footer-link,
+.footer-contact-item a,
+.footer-contact-item span,
+.footer-bottom-links a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.footer-link:hover,
+.footer-contact-item a:hover,
+.footer-bottom-links a:hover {
+  color: var(--color-white);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-text-light);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  color: #4e9d67;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  align-items: center;
+  padding-top: 22px;
+}
+
+.footer-copyright {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 56px 16px 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-image">
-        <img src={heroImage} alt="Tree worker cutting tree with chainsaw" class="fade-right" />
+        <img src={heroImage} alt="Tree worker cutting tree with chainsaw" className="fade-right" />
       </div>
       <div className="hero-content">
         <p className="hero-eyebrow">
