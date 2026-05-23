@@ -27,10 +27,10 @@ const Footer = () => {
           <FooterContactGroup
             title="Contact"
             items={[
-              { icon: "phone", text: "(803) 555-TREE", href: "tel:8035558733" },
+              { icon: "phone", text: "(803) 402-3736", href: "tel:8034023736" },
               {
                 icon: "map",
-                text: "Serving Columbia, SC & Surrounding Areas",
+                text: "Serving Columbia, Lexington, Irmo, and surrounding Midlands SC",
               },
               {
                 icon: "mail",
