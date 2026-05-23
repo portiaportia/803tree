@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/803tree/static/css/main.bd25c75d.css",
-    "main.js": "/803tree/static/js/main.7a45c262.js",
-    "static/media/hero.png": "/803tree/static/media/hero.8a875202aff8cff9497d.png",
-    "static/media/lightening.png": "/803tree/static/media/lightening.b83391baa8ed170b6837.png",
-    "static/media/tree.png": "/803tree/static/media/tree.4e0e5d2ab696b92c3acd.png",
-    "static/media/chainsaw.png": "/803tree/static/media/chainsaw.f690c38808c82152b38d.png",
-    "static/media/stump.png": "/803tree/static/media/stump.86d096e8da6d0e25f8b0.png",
-    "index.html": "/803tree/index.html",
-    "main.bd25c75d.css.map": "/803tree/static/css/main.bd25c75d.css.map",
-    "main.7a45c262.js.map": "/803tree/static/js/main.7a45c262.js.map"
+    "main.css": "/static/css/main.bd25c75d.css",
+    "main.js": "/static/js/main.732fa299.js",
+    "static/media/hero.png": "/static/media/hero.8a875202aff8cff9497d.png",
+    "static/media/lightening.png": "/static/media/lightening.b83391baa8ed170b6837.png",
+    "static/media/tree.png": "/static/media/tree.4e0e5d2ab696b92c3acd.png",
+    "static/media/chainsaw.png": "/static/media/chainsaw.f690c38808c82152b38d.png",
+    "static/media/stump.png": "/static/media/stump.86d096e8da6d0e25f8b0.png",
+    "index.html": "/index.html",
+    "main.bd25c75d.css.map": "/static/css/main.bd25c75d.css.map",
+    "main.732fa299.js.map": "/static/js/main.732fa299.js.map"
   },
   "entrypoints": [
     "static/css/main.bd25c75d.css",
-    "static/js/main.7a45c262.js"
+    "static/js/main.732fa299.js"
   ]
 }
