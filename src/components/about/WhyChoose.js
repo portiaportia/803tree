@@ -1,5 +1,7 @@
+// src/components/WhyChoose/WhyChooseSection.js
+
 import "./css/WhyChoose.css";
-import { MapPinned, Wrench, Check } from "lucide-react";
+import { MapPinned, Wrench } from "lucide-react";
 import WhyChooseItem from "./WhyChooseItem";
 
 const items = [
@@ -19,18 +21,19 @@ const WhyChooseSection = () => {
   return (
     <section className="why-section" id="about">
       <div className="why-inner">
-        <div className="why-intro">
-          <div className="why-intro-icon">
-            <Check size={34} strokeWidth={2.5} />
-          </div>
 
-          <h2 className="why-title">Why Choose 803 Tree?</h2>
+        <div className="why-intro">
+
+          <h2 className="why-title">
+            Why Choose 803 Tree?
+          </h2>
 
           <p className="why-text">
-            We are a local, reliable team that takes pride in every job, large or small.
-            With the right equipment and the experience to back it up, we get the work
-            done safely and professionally.
+            We are a local, reliable team that takes pride in every job,
+            large or small. With the right equipment and the experience
+            to back it up, we get the work done safely and professionally.
           </p>
+
         </div>
 
         <div className="why-items">
@@ -43,6 +46,7 @@ const WhyChooseSection = () => {
             />
           ))}
         </div>
+
       </div>
     </section>
   );

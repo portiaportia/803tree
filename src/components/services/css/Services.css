@@ -1,3 +1,5 @@
+/* src/components/Services/css/Services.css */
+
 .services-section {
   background: #f5f5f5;
   padding: 80px 24px;
@@ -37,14 +39,20 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   gap: 22px;
   margin-bottom: 32px;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 700px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -55,9 +63,5 @@
 
   .services-title {
     font-size: 1.8rem;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
   }
 }
