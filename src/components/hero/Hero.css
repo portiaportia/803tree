@@ -12,14 +12,13 @@
 .hero-image {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   display: block;
 }
 
@@ -33,10 +32,8 @@
 
 .hero-image::after {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     to right,
     rgba(18, 18, 18, 0.96) 0%,
@@ -46,55 +43,54 @@
   );
 }
 
+/* Optional if you keep <div className="hero-overlay" /> */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ========================================
    CONTENT
 ======================================== */
 
+.container {
+  position: relative;
+}
+
 .hero-content {
   position: relative;
-  z-index: 1;
-
+  z-index: 2;
   max-width: 720px;
-
-  padding: 120px 24px 80px 80px;
+  padding: 140px 24px 100px;
 }
 
 .hero-eyebrow {
   margin-bottom: var(--space-md);
-
   color: #4e9d67;
-
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
-
   text-transform: uppercase;
   letter-spacing: 3px;
-
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
 .hero-title {
   margin-bottom: var(--space-lg);
-
   color: var(--color-white);
-
   font-size: 4rem;
   font-weight: var(--fw-black);
   line-height: 1.02;
-
   text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
 }
 
 .hero-text {
   max-width: 540px;
-
   margin-bottom: var(--space-xl);
-
   color: rgba(255, 255, 255, 0.92);
-
   font-size: 1.1rem;
   line-height: 1.7;
-
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -105,44 +101,32 @@
 .hero-actions {
   display: flex;
   align-items: center;
-
   gap: var(--space-md);
 }
 
 .hero-cta {
   padding: 14px 24px;
-
   border-radius: var(--radius-sm);
-
   background: linear-gradient(
     180deg,
     var(--color-accent),
     var(--color-accent-dark)
   );
-
   color: var(--color-white);
   text-decoration: none;
-
   font-weight: var(--fw-bold);
-
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .hero-phone {
   padding: 14px 24px;
-
   border: 1px solid rgba(232, 123, 30, 0.45);
   border-radius: var(--radius-sm);
-
   background: rgba(0, 0, 0, 0.28);
-
   color: var(--color-white);
   text-decoration: none;
-
   font-weight: var(--fw-medium);
-
   backdrop-filter: blur(6px);
-
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -151,9 +135,7 @@
 
 .hero-phone:hover {
   border-color: var(--color-accent);
-
   background: rgba(232, 123, 30, 0.12);
-
   transform: translateY(-1px);
 }
 
@@ -164,24 +146,19 @@
 .hero-features {
   display: flex;
   flex-wrap: wrap;
-
   gap: 32px;
-
   margin-top: 42px;
 }
 
 .hero-feature {
   display: flex;
   align-items: center;
-
   gap: 12px;
-
   color: var(--color-white);
 }
 
 .hero-feature svg {
   color: #7cc58f;
-
   flex-shrink: 0;
 }
 
@@ -189,7 +166,6 @@
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   line-height: 1.4;
-
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
@@ -226,16 +202,6 @@
     padding: 110px 20px 64px;
   }
 
-    .hero-content {
-    padding: 120px 24px 72px;
-
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.2)
-    );
-  }
-
   .hero-title {
     font-size: 2.5rem;
   }
@@ -252,17 +218,30 @@
   .hero-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     gap: 12px;
+    margin-top: 34px;
+  }
+
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
 
     margin-top: 34px;
+
+    justify-items: center;
+    text-align: center;
   }
 
   .hero-feature {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
 
     gap: 8px;
+
+    text-align: center;
   }
 
   .hero-feature span {
@@ -280,10 +259,8 @@
 
   .hero-image-mobile::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     background: linear-gradient(
       to top,
       rgba(18, 18, 18, 0.98) 0%,
