@@ -16,7 +16,7 @@ const Firewood = () => {
             Seasoned
             <br />
             Firewood
-            <span>Available</span>
+            <span> Available</span>
           </h2>
 
           <p className="firewood-text">
