@@ -5,6 +5,7 @@ import { sanity } from "../lib/sanity";
 import ArticleCard from "../components/article/ArticleCard";
 import Hero from "../components/hero/Hero";
 import "./css/Education.css";
+import ArticleHelp from "../components/articlehelp/ArticleHelp";
 
 const Education = () => {
   const [articles, setArticles] = useState([]);
@@ -79,6 +80,7 @@ const Education = () => {
               ))}
             </div>
           )}
+          <ArticleHelp />
         </div>
       </section>
     </main>
