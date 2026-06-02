@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.pathname !== "/" && !l.pathname.endsWith(".html")) {
+          l.replace(l.origin + "/?/" + l.pathname.slice(1));
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
