@@ -73,13 +73,13 @@ const Nav = () => {
           menuOpen ? "open" : ""
         }`}
       >
-        <a href="#services" className="nav-link" onClick={() => setMenuOpen(false)}>Services</a>
+        <a href="/#services" className="nav-link" onClick={() => setMenuOpen(false)}>Services</a>
 
-        <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+        <a href="/#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
 
         {/*<a href="/education" className="nav-link" onClick={() => setMenuOpen(false)}>Education</a> */}
 
-        <a href="#estimate" className="nav-cta" onClick={() => setMenuOpen(false)}>
+        <a href="/#estimate" className="nav-cta" onClick={() => setMenuOpen(false)}>
           Get a Free Estimate
         </a>
       </nav>

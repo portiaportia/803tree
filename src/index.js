@@ -7,6 +7,13 @@ import Home from "./pages/Home";
 import Education from "./pages/Education";
 import Article from "./pages/Article";
 
+
+const redirectMatch = window.location.search.match(/^\?\/(.*)/);
+
+if (redirectMatch) {
+  window.history.replaceState(null, "", "/" + redirectMatch[1]);
+}
+
 const basename = "/803tree";
 
 const App = () => {
