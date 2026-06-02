@@ -1,5 +1,10 @@
+// src/pages/Education.js
+
 import { useEffect, useState } from "react";
 import { sanity } from "../lib/sanity";
+import ArticleCard from "../components/article/ArticleCard";
+import Hero from "../components/hero/Hero";
+import "./css/Education.css";
 
 const Education = () => {
   const [articles, setArticles] = useState([]);
@@ -10,16 +15,17 @@ const Education = () => {
     const fetchArticles = async () => {
       try {
         const data = await sanity.fetch(`
-  *[_type == "article"] {
-    _id,
-    title,
-    excerpt,
-    "slug": slug.current,
-    publishedAt
-  }
-`);
+          *[_type == "article"] | order(publishedAt desc) {
+            _id,
+            title,
+            excerpt,
+            "slug": slug.current,
+            publishedAt,
+            "category": category,
+            "image": heroImage.asset->url
+          }
+        `);
 
-        console.log("Sanity articles:", data);
         setArticles(data);
       } catch (err) {
         console.error("Sanity fetch error:", err);
@@ -33,26 +39,50 @@ const Education = () => {
   }, []);
 
   return (
-    <section style={{ padding: "80px 24px" }}>
-      <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
-        <h1>Tree Care Education</h1>
+    <>
+      <Hero />
+      <main className="education-page">
+      <section className="education-hero">
+        <div className="education-inner">
+          <p className="education-eyebrow">Tree Care Education</p>
 
-        {loading && <p>Loading articles...</p>}
-        {error && <p style={{ color: "crimson" }}>{error}</p>}
+          <h1 className="education-title">Tree Care Education</h1>
 
-        {!loading && !error && articles.length === 0 && <p>No articles found.</p>}
+          <p className="education-text">
+            Expert tips, guides, and advice to help you keep your trees healthy,
+            safe, and beautiful year-round.
+          </p>
+        </div>
+      </section>
 
-        {articles.map((article) => (
-          <article
-            key={article._id}
-            style={{ padding: "24px 0", borderBottom: "1px solid #ddd" }}
-          >
-            <h2>{article.title}</h2>
-            <p>{article.excerpt}</p>
-          </article>
-        ))}
-      </div>
-    </section>
+      <section className="education-listing">
+        <div className="education-inner">
+          {loading && <p className="education-status">Loading articles...</p>}
+          {error && <p className="education-status error">{error}</p>}
+
+          {!loading && !error && articles.length === 0 && (
+            <p className="education-status">No articles found.</p>
+          )}
+
+          {articles.length > 0 && (
+            <div className="education-grid">
+              {articles.map((article) => (
+                <ArticleCard
+                  key={article._id}
+                  title={article.title}
+                  excerpt={article.excerpt}
+                  image={article.image}
+                  category={article.category}
+                  slug={article.slug}
+                  publishedAt={article.publishedAt}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
+    </>
   );
 };
 

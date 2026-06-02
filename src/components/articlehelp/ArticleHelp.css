@@ -1,0 +1,65 @@
+/* src/components/ArticleHelp/ArticleHelp.css */
+
+.article-help {
+  margin-top: 48px;
+  padding: 28px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: linear-gradient(180deg, #173b22, #102112);
+}
+
+.article-help-title {
+  margin-bottom: 10px;
+
+  font-size: 1.7rem;
+  font-weight: var(--fw-black);
+  line-height: 1.2;
+
+  color: var(--color-white);
+}
+
+.article-help-text {
+  max-width: 700px;
+
+  margin-bottom: 20px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  line-height: 1.7;
+}
+
+.article-help-button {
+  display: inline-block;
+
+  padding: 14px 24px;
+
+  border-radius: var(--radius-sm);
+
+  background: linear-gradient(
+    180deg,
+    var(--color-accent),
+    var(--color-accent-dark)
+  );
+
+  color: var(--color-white);
+  text-decoration: none;
+
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+
+.article-help-button:hover {
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .article-help {
+    padding: 22px;
+  }
+
+  .article-help-title {
+    font-size: 1.4rem;
+  }
+}
