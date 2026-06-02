@@ -77,6 +77,8 @@ const Nav = () => {
 
         <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
 
+        {/*<a href="/education" className="nav-link" onClick={() => setMenuOpen(false)}>Education</a> */}
+
         <a href="#estimate" className="nav-cta" onClick={() => setMenuOpen(false)}>
           Get a Free Estimate
         </a>
