@@ -1,0 +1,29 @@
+/* src/components/TeamFeature/TeamFeature.css */
+
+.team-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  padding: 0 10px;
+  min-height: 92px;
+
+  text-align: center;
+}
+
+.team-feature-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.team-feature-label {
+  color: var(--color-white);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  line-height: 1.25;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: pre-line;
+}

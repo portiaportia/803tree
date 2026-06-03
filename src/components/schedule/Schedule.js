@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { Clock3, Leaf, ShieldCheck } from "lucide-react";
 import "./Schedule.css";
 
 const SERVICE_OPTIONS = [
@@ -10,6 +11,24 @@ const SERVICE_OPTIONS = [
   "Stump Grinding",
   "Emergency Service",
   "Other",
+];
+
+const BENEFITS = [
+  {
+    icon: Clock3,
+    title: "Fast Response",
+    text: "We'll get back to you within 24 hours.",
+  },
+  {
+    icon: Leaf,
+    title: "No Obligation",
+    text: "Free estimates with absolutely no pressure.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Experienced Team",
+    text: "Certified professionals you can count on.",
+  },
 ];
 
 const INITIAL_FORM = {
@@ -56,21 +75,15 @@ const Schedule = () => {
 
     setImages((prev) => [...prev, ...files]);
 
-    const newPreviews = files.map((file) =>
-      URL.createObjectURL(file)
-    );
+    const newPreviews = files.map((file) => URL.createObjectURL(file));
 
     setPreviews((prev) => [...prev, ...newPreviews]);
   };
 
   const removeImage = (index) => {
-    setImages((prev) =>
-      prev.filter((_, i) => i !== index)
-    );
+    setImages((prev) => prev.filter((_, i) => i !== index));
 
-    setPreviews((prev) =>
-      prev.filter((_, i) => i !== index)
-    );
+    setPreviews((prev) => prev.filter((_, i) => i !== index));
   };
 
   /* ========================================
@@ -100,9 +113,7 @@ const Schedule = () => {
     console.log("Cloudinary response:", json);
 
     if (!res.ok || !json.secure_url) {
-      throw new Error(
-        json.error?.message || "Cloudinary upload failed"
-      );
+      throw new Error(json.error?.message || "Cloudinary upload failed");
     }
 
     return json.secure_url;
@@ -122,9 +133,7 @@ const Schedule = () => {
       let imageUrls = [];
 
       if (images.length > 0) {
-        imageUrls = await Promise.all(
-          images.map(uploadToCloudinary)
-        );
+        imageUrls = await Promise.all(images.map(uploadToCloudinary));
       }
 
       await emailjs.send(
@@ -139,28 +148,20 @@ const Schedule = () => {
           description: form.description || "None",
 
           images:
-            imageUrls.length > 0
-              ? imageUrls.join("\n")
-              : "No photos uploaded",
+            imageUrls.length > 0 ? imageUrls.join("\n") : "No photos uploaded",
         },
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
       setStatus("success");
-
       setForm(INITIAL_FORM);
-
       setImages([]);
       setPreviews([]);
     } catch (err) {
       console.error(err);
 
       setStatus("error");
-
-      setErrorMsg(
-        err.message ||
-          "Something went wrong. Please try again."
-      );
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
     }
   };
 
@@ -173,21 +174,22 @@ const Schedule = () => {
       <section className="schedule-section" id="estimate">
         <div className="schedule-inner">
           <div className="schedule-success">
-            <div className="success-icon">✓</div>
+            <div className="schedule-success-card">
+              <div className="success-icon">✓</div>
 
-            <h2>Request Sent!</h2>
+              <h2>Request Sent!</h2>
 
-            <p>
-              We'll be in touch within 24 hours
-              to confirm your free estimate.
-            </p>
+              <p>
+                We'll be in touch within 24 hours to confirm your free estimate.
+              </p>
 
-            <button
-              className="success-reset"
-              onClick={() => setStatus("idle")}
-            >
-              Submit Another Request
-            </button>
+              <button
+                className="success-reset"
+                onClick={() => setStatus("idle")}
+              >
+                Submit Another Request
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -201,252 +203,195 @@ const Schedule = () => {
   return (
     <section className="schedule-section" id="estimate">
       <div className="schedule-inner">
+        <div className="schedule-copy">
+          <p className="schedule-eyebrow">Free Estimate</p>
 
-        <div className="schedule-header">
-          <p className="schedule-eyebrow">
-            Free Estimate
-          </p>
-
-          <h2 className="schedule-title">
-            Schedule Your Service
-          </h2>
+          <h2 className="schedule-title">Schedule Your Service</h2>
 
           <p className="schedule-subtitle">
-            Fill out the form below and we'll get
-            back to you within 24 hours.
+            Fill out the form below and we'll get back to you within 24 hours.
           </p>
+
+          <div className="schedule-benefits">
+            {BENEFITS.map(({ icon: Icon, title, text }) => (
+              <div className="schedule-benefit" key={title}>
+                <div className="schedule-benefit-icon">
+                  <Icon size={22} />
+                </div>
+
+                <div className="schedule-benefit-content">
+                  <h3 className="schedule-benefit-title">{title}</h3>
+                  <p className="schedule-benefit-text">{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <form
-          className="schedule-form"
-          onSubmit={handleSubmit}
-          noValidate
-        >
+        <div className="schedule-panel">
+          <form className="schedule-form" onSubmit={handleSubmit} noValidate>
+            {/* ROW 1 */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
 
-          {/* ROW 1 */}
-
-          <div className="form-row">
-
-            <div className="form-group">
-              <label htmlFor="name">
-                Full Name
-              </label>
-
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="John Smith"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">
-                Phone Number
-              </label>
-
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="(803) 555-0100"
-                value={form.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-          </div>
-
-          {/* ROW 2 */}
-
-          <div className="form-row">
-
-            <div className="form-group">
-              <label htmlFor="email">
-                Email Address
-              </label>
-
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="john@example.com"
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="address">
-                Property Address
-              </label>
-
-              <input
-                id="address"
-                name="address"
-                type="text"
-                placeholder="123 Main St"
-                value={form.address}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-          </div>
-
-          {/* SERVICE */}
-
-          <div className="form-group full-width">
-
-            <label htmlFor="service">
-              Service Needed
-            </label>
-
-            <select
-              id="service"
-              name="service"
-              value={form.service}
-              onChange={handleChange}
-            >
-              <option value="">
-                Select a service...
-              </option>
-
-              {SERVICE_OPTIONS.map((service) => (
-                <option
-                  key={service}
-                  value={service}
-                >
-                  {service}
-                </option>
-              ))}
-            </select>
-
-          </div>
-
-          {/* DESCRIPTION */}
-
-          <div className="form-group full-width">
-
-            <label htmlFor="description">
-              Description
-            </label>
-
-            <textarea
-              id="description"
-              name="description"
-              rows={4}
-              placeholder="Describe the trees, concerns, access to property, etc."
-              value={form.description}
-              onChange={handleChange}
-            />
-
-          </div>
-
-          {/* PHOTO UPLOAD */}
-
-          <div className="form-group full-width">
-
-            <label>
-              Photos
-            </label>
-
-            <div
-              className="upload-zone"
-              onClick={() =>
-                fileInputRef.current.click()
-              }
-              onDragOver={(e) =>
-                e.preventDefault()
-              }
-              onDrop={(e) => {
-                e.preventDefault();
-
-                handleFiles({
-                  target: {
-                    files: e.dataTransfer.files,
-                  },
-                });
-              }}
-            >
-              <div className="upload-icon">
-                📷
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="John Smith"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
-              <p className="upload-text">
-                Click or drag photos here
-              </p>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
 
-              <p className="upload-hint">
-                JPG, PNG, HEIC up to 10MB
-              </p>
-
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleFiles}
-                style={{ display: "none" }}
-              />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="(803) 555-0100"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
 
-            {previews.length > 0 && (
-              <div className="preview-grid">
+            {/* ROW 2 */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
 
-                {previews.map((src, index) => (
-                  <div
-                    key={index}
-                    className="preview-item"
-                  >
-                    <img
-                      src={src}
-                      alt={`Upload ${index + 1}`}
-                    />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-                    <button
-                      type="button"
-                      className="preview-remove"
-                      onClick={() =>
-                        removeImage(index)
-                      }
-                    >
-                      ×
-                    </button>
-                  </div>
+              <div className="form-group">
+                <label htmlFor="address">Property Address</label>
+
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  placeholder="123 Main St"
+                  value={form.address}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            {/* SERVICE */}
+            <div className="form-group full-width">
+              <label htmlFor="service">Service Needed</label>
+
+              <select
+                id="service"
+                name="service"
+                value={form.service}
+                onChange={handleChange}
+              >
+                <option value="">Select a service...</option>
+
+                {SERVICE_OPTIONS.map((service) => (
+                  <option key={service} value={service}>
+                    {service}
+                  </option>
                 ))}
+              </select>
+            </div>
 
+            {/* DESCRIPTION */}
+            <div className="form-group full-width">
+              <label htmlFor="description">Description</label>
+
+              <textarea
+                id="description"
+                name="description"
+                rows={4}
+                placeholder="Describe the trees, concerns, access to property, etc."
+                value={form.description}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* PHOTO UPLOAD */}
+            <div className="form-group full-width">
+              <label>Photos</label>
+
+              <div
+                className="upload-zone"
+                onClick={() => fileInputRef.current.click()}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+
+                  handleFiles({
+                    target: {
+                      files: e.dataTransfer.files,
+                    },
+                  });
+                }}
+              >
+                <div className="upload-icon">📷</div>
+
+                <p className="upload-text">Click or drag photos here</p>
+
+                <p className="upload-hint">JPG, PNG, HEIC up to 10MB</p>
+
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleFiles}
+                  style={{ display: "none" }}
+                />
               </div>
-            )}
 
-          </div>
+              {previews.length > 0 && (
+                <div className="preview-grid">
+                  {previews.map((src, index) => (
+                    <div key={index} className="preview-item">
+                      <img src={src} alt={`Upload ${index + 1}`} />
 
-          {/* ERROR */}
+                      <button
+                        type="button"
+                        className="preview-remove"
+                        onClick={() => removeImage(index)}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
-          {errorMsg && (
-            <p className="form-error">
-              {errorMsg}
-            </p>
-          )}
+            {/* ERROR */}
+            {errorMsg && <p className="form-error">{errorMsg}</p>}
 
-          {/* SUBMIT */}
-
-          <button
-            type="submit"
-            className="schedule-submit"
-            disabled={status === "uploading"}
-          >
-            {status === "uploading"
-              ? "Sending..."
-              : "Request Free Estimate"}
-          </button>
-
-        </form>
+            {/* SUBMIT */}
+            <button
+              type="submit"
+              className="schedule-submit"
+              disabled={status === "uploading"}
+            >
+              {status === "uploading" ? "Sending..." : "Request Free Estimate"}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

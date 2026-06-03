@@ -3,6 +3,7 @@ import Services from "../components/services/Services";
 import Firewood from "../components/firewood/Firewood";
 import WhyChooseSection from "../components/about/WhyChoose";
 import Schedule from "../components/schedule/Schedule";
+import Team from "../components/team/Team";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Hero />
             <Services />
             <Firewood />
+            <Team />
             <Schedule />
             <WhyChooseSection />
         </>
