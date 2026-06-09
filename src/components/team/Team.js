@@ -46,13 +46,13 @@ const team = [
     ],
   },
   {
-    name: "Micha",
+    name: "Micah",
     role: "Climber / Grounds",
     image: MicahaPhoto,
     summary:
-      "Micha is an experienced climber who brings skill, precision, and focus to every job.",
+      "Micah is an experienced climber who brings skill, precision, and focus to every job.",
     bio:
-      "Micha is one of our experienced climbers. From pruning to removals, he works efficiently and carefully to keep each property safe and looking its best.",
+      "Micah is one of our experienced climbers. From pruning to removals, he works efficiently and carefully to keep each property safe and looking its best.",
     defaultFlipped: false,
     features: [
       {
