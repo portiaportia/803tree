@@ -29,9 +29,13 @@ const WhyChooseSection = () => {
           </h2>
 
           <p className="why-text">
-            We are a local, reliable team that takes pride in every job,
-            large or small. With the right equipment and the experience
-            to back it up, we get the work done safely and professionally.
+            803 Tree, LLC provides professional tree removal, tree pruning, hazardous tree mitigation, storm cleanup, forestry mulching, and stump grinding throughout the Midlands of South Carolina. 
+          </p>
+          <p className="why-text">
+            We specialize in difficult-access projects using advanced equipment, including spider lifts and compact machinery that minimize impact to your property. 
+          </p>
+          <p className="why-text">  
+            Whether you need a hazardous tree removed, structural pruning to improve tree health, or land cleared with forestry mulching, our experienced team is committed to safe, ethical tree care and exceptional cleanup.
           </p>
 
         </div>

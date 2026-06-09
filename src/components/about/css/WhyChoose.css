@@ -8,7 +8,7 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.2fr 1.8fr;
+  grid-template-columns: 1.8fr 1.2fr;
   gap: 40px;
   align-items: start;
 }
@@ -38,12 +38,11 @@
   font-size: 1rem;
   line-height: 1.7;
   max-width: 560px;
+  margin-bottom:1rem;
 }
 
 .why-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  margin-top:3.5rem;
 }
 
 @media (max-width: 1024px) {
@@ -64,6 +63,7 @@
   .why-items {
     grid-template-columns: 1fr;
     gap: 22px;
+    margin-top:0;
   }
 
   .why-title {
